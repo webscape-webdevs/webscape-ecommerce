@@ -52,6 +52,7 @@ export const login = (email, password) => async (dispatch) => {
     );
 
     dispatch({ type: LOGIN_SUCCESS, payload: data.user });
+
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error.response.data.message });
   }
@@ -84,7 +85,7 @@ export const loadUser = () => async (dispatch) => {
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error) {
-    dispatch({ type: LOAD_USER_FAIL });
+    dispatch({ type: LOAD_USER_FAIL, payload: error.response.data.message });
   }
 };
 

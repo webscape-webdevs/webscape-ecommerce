@@ -1,6 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import Header from "./component/layout/Header/Header.js";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import WebFont from "webfontloader";
 import React from "react";
@@ -62,9 +62,12 @@ function App() {
       },
     });
 
+
     store.dispatch(loadUser());
 
     getStripeApiKey();
+
+
   }, []);
 
   // window.addEventListener("contextmenu", (e) => e.preventDefault());

@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import MetaData from "../layout/MetaData";
 import LaunchIcon from "@material-ui/icons/Launch";
 
+
 const MyOrders = () => {
   const dispatch = useDispatch();
 
@@ -20,6 +21,7 @@ const MyOrders = () => {
 
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
+
 
     {
       field: "status",
@@ -66,6 +68,8 @@ const MyOrders = () => {
   ];
   const rows = [];
 
+
+
   orders &&
     orders.forEach((item, index) => {
       rows.push({
@@ -73,6 +77,7 @@ const MyOrders = () => {
         id: item._id,
         status: item.orderStatus,
         amount: item.totalPrice,
+
       });
     });
 
@@ -96,13 +101,16 @@ const MyOrders = () => {
           <DataGrid
             rows={rows}
             columns={columns}
-            pageSize={10}
+            // pageSize={10}
+            rowsPerPage={10}
             disableSelectionOnClick
             className="myOrdersTable"
             autoHeight
           />
 
           <Typography id="myOrdersHeading">{user.name}'s Orders</Typography>
+
+
         </div>
       )}
     </Fragment>
