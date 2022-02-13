@@ -1,12 +1,16 @@
 import React, { Fragment } from "react";
 import CheckoutSteps from "../Cart/CheckoutSteps";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import MetaData from "../layout/MetaData";
 import "./ConfirmOrder.css";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
+import { clearCart } from "../../actions/cartAction";
+import { createOrder } from "../../actions/orderAction";
+
 
 const ConfirmOrder = ({ history }) => {
+
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
 
@@ -17,11 +21,17 @@ const ConfirmOrder = ({ history }) => {
 
   const shippingCharges = subtotal > 1000 ? 0 : 200;
 
-  const tax = subtotal * 0.18;
+  const tax = ((subtotal * 18) / 100);
 
   const totalPrice = subtotal + tax + shippingCharges;
 
   const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.state}, ${shippingInfo.pinCode}, ${shippingInfo.country}`;
+
+
+
+  const dispatch = useDispatch();
+
+
 
   const proceedToPayment = () => {
     const data = {
@@ -33,7 +43,65 @@ const ConfirmOrder = ({ history }) => {
 
     sessionStorage.setItem("orderInfo", JSON.stringify(data));
 
-    history.push("/process/payment");
+    // history.push("/process/payment");
+    const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
+    const order = {
+      shippingInfo,
+      orderItems: cartItems,
+      itemsPrice: orderInfo.subtotal,
+      taxPrice: orderInfo.tax,
+      shippingPrice: orderInfo.shippingCharges,
+      totalPrice: orderInfo.totalPrice,
+    };
+
+    var options = {
+      "key": 'rzp_test_gCphCjeMVJqmLd',
+      "amount": (data.totalPrice * 100),
+
+      "name": "WebScape",
+      "description": "Test Transaction",
+      "image": "",
+
+      "handler": function (response) {
+
+        order.paymentInfo = {
+          id: response.razorpay_payment_id,
+          status: "succeeded",
+        };
+
+
+        dispatch(clearCart());
+
+
+        dispatch(createOrder(order));
+
+
+
+        history.push("/success");
+
+
+      },
+
+      "prefill": {
+        "name": user.name,
+        "email": user.email,
+        "contact": shippingInfo.phoneNo
+      },
+
+      "theme": {
+        "color": "#3399cc"
+      }
+    };
+    var rzp = new window.Razorpay(options);
+    rzp.open();
+
+    rzp.on('payment.failed', function (response) {
+      alert(response.error.code);
+      alert.error("There's some issue while processing payment ");
+
+    });
+
+
   };
 
   return (
