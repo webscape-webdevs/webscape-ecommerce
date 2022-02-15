@@ -38,7 +38,7 @@ import ProductReviews from "./component/Admin/ProductReviews";
 import Contact from "./component/layout/Contact/Contact";
 import About from "./component/layout/About/About";
 
-import Navbar from "./component/layout/Header/Navbar"
+import Navbar from "./component/layout/Header/Navbar";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -127,12 +127,17 @@ function App() {
           component={NewProduct}
         />
 
+
+
         <ProtectedRoute
           exact
           path="/admin/product/:id"
           isAdmin={true}
           component={UpdateProduct}
         />
+
+
+
         <ProtectedRoute
           exact
           path="/admin/orders"

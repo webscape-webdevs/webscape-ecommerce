@@ -1,3 +1,56 @@
+.MuiDataGrid-root{
+  flex: none !important;
+}
+
+.MuiDataGrid-root .MuiDataGrid-cell--textRight{
+  text-align: center  !important;
+}
+
+.MuiDataGrid-root .MuiDataGrid-cell--textLeft {
+  text-align: center  !important;
+}
+
+.MuiDataGrid-root .MuiDataGrid-menuIcon{
+  visibility: visible !important;
+  
+}
+
+.MuiTablePagination-actions .MuiSvgIcon-root{
+  color: black !important;
+}
+
+.MuiIconButton-root{
+  color: white !important;
+}
+
+.MuiDataGrid-root .MuiDataGrid-columnHeaderTitle{
+  overflow: visible !important;
+  text-overflow: unset !important;
+  font: 300 1vmax "Roboto" !important;
+}
+
+.MuiDataGrid-root .MuiDataGrid-columnHeader--alignRight .MuiDataGrid-columnHeaderDraggableContainer, .MuiDataGrid-root .MuiDataGrid-columnHeader--alignRight .MuiDataGrid-columnHeaderTitleContainer {
+  flex-direction: row !important;
+}
+
+.MuiDataGrid-root .MuiDataGrid-columnHeaderDraggableContainer{
+  width: 100vw !important; 
+}
+
+.MuiDataGrid-root .MuiDataGrid-columnHeaderTitleContainer{
+  flex: none !important;
+}
+
+.MuiDataGrid-columnHeaderDraggableContainer{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.MuiDataGrid-root .MuiDataGrid-columnHeader--alignCenter .MuiDataGrid-menuIcon, .MuiDataGrid-root .MuiDataGrid-columnHeader--alignRight .MuiDataGrid-menuIcon{
+  margin-right: unset !important;
+}
+
 .productListContainer {
   width: 100%;
   box-sizing: border-box;
@@ -46,6 +99,7 @@
 .MuiDataGrid-columnHeader div {
   color: rgb(255, 255, 255);
 }
+
 
 @media screen and (max-width: 600px) {
   .productListTable div {

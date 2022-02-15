@@ -50,7 +50,7 @@ const OrderList = ({ history }) => {
   }, [dispatch, alert, error, deleteError, history, isDeleted]);
 
   const columns = [
-    { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
+    { field: "id", headerName: "Order ID", minWidth: 300 },
 
     {
       field: "status",
@@ -64,19 +64,36 @@ const OrderList = ({ history }) => {
       },
     },
     {
+      field: "itemName",
+      headerName: "Items Name",
+      type: "string",
+      minWidth: 150,
+      flex: 0.4,
+    },
+    {
       field: "itemsQty",
       headerName: "Items Qty",
       type: "number",
       minWidth: 150,
       flex: 0.4,
+
     },
+
+    {
+      field: "itemDate",
+      headerName: "Items Date",
+      type: "number",
+      minWidth: 150,
+      flex: 0.4,
+    },
+
 
     {
       field: "amount",
       headerName: "Amount",
       type: "number",
       minWidth: 270,
-      flex: 0.5,
+      flex: 0.6,
     },
 
     {
@@ -103,6 +120,7 @@ const OrderList = ({ history }) => {
           </Fragment>
         );
       },
+
     },
   ];
 
@@ -112,7 +130,9 @@ const OrderList = ({ history }) => {
     orders.forEach((item) => {
       rows.push({
         id: item._id,
+        itemName: item.orderItems[0].name,
         itemsQty: item.orderItems.length,
+        itemDate: item.paidAt,
         amount: item.totalPrice,
         status: item.orderStatus,
       });
@@ -124,7 +144,7 @@ const OrderList = ({ history }) => {
 
       <div className="dashboard">
         <SideBar />
-        <div className="productListContainer">
+        <div className="productListContainer" >
           <h1 id="productListHeading">ALL ORDERS</h1>
 
           <DataGrid

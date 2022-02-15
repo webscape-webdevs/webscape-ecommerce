@@ -19,7 +19,7 @@ const MyOrders = () => {
   const { user } = useSelector((state) => state.user);
 
   const columns = [
-    { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
+    { field: "id", headerName: "Order ID", minWidth: 300 },
 
     {
       field: "status",
@@ -33,8 +33,23 @@ const MyOrders = () => {
       },
     },
     {
+      field: "itemName",
+      headerName: "Items Name",
+      type: "string",
+      minWidth: 150,
+      flex: 0.3,
+    },
+    {
       field: "itemsQty",
       headerName: "Items Qty",
+      type: "number",
+      minWidth: 150,
+      flex: 0.3,
+    },
+
+    {
+      field: "itemDate",
+      headerName: "Items Date",
       type: "number",
       minWidth: 150,
       flex: 0.3,
@@ -71,7 +86,9 @@ const MyOrders = () => {
       rows.push({
         itemsQty: item.orderItems.length,
         id: item._id,
+        itemName: item.orderItems[0].name,
         status: item.orderStatus,
+        itemDate: item.paidAt,
         amount: item.totalPrice,
       });
     });
