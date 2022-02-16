@@ -65,7 +65,7 @@ const ProductList = ({ history }) => {
       headerName: "Stock",
       type: "number",
       minWidth: 150,
-      flex: 0.3,
+      flex: 0.5,
     },
 
     {
@@ -77,8 +77,24 @@ const ProductList = ({ history }) => {
     },
 
     {
+      field: "discount",
+      headerName: "Discount",
+      type: "number",
+      minWidth: 270,
+      flex: 0.5,
+    },
+
+    {
+      field: "fianlPrice",
+      headerName: "FinalPrice",
+      type: "number",
+      minWidth: 270,
+      flex: 0.5,
+    },
+
+    {
       field: "actions",
-      flex: 0.3,
+      flex: 0.5,
       headerName: "Actions",
       minWidth: 150,
       type: "number",
@@ -103,17 +119,27 @@ const ProductList = ({ history }) => {
     },
   ];
 
+
+
+
   const rows = [];
 
   products &&
     products.forEach((item) => {
+
       rows.push({
         id: item._id,
         stock: item.Stock,
         price: item.price,
+        discount: item.discount,
+        fianlPrice: item.finalPrice,
         name: item.name,
-      });
+
+      })
+
     });
+
+
 
   return (
     <Fragment>

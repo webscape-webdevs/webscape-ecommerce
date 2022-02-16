@@ -21,6 +21,7 @@ const NewProduct = ({ history }) => {
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
+  const [discount, setDiscount] = useState(0);
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [Stock, setStock] = useState(0);
@@ -53,10 +54,16 @@ const NewProduct = ({ history }) => {
   const createProductSubmitHandler = (e) => {
     e.preventDefault();
 
+    let discountConvert = discount / 100;
+    let finalPrice = price - (price * discountConvert);
+
+
     const myForm = new FormData();
 
     myForm.set("name", name);
     myForm.set("price", price);
+    myForm.set("discount", discount);
+    myForm.set("finalPrice", finalPrice);
     myForm.set("description", description);
     myForm.set("category", category);
     myForm.set("Stock", Stock);
@@ -117,6 +124,16 @@ const NewProduct = ({ history }) => {
                 placeholder="Price"
                 required
                 onChange={(e) => setPrice(e.target.value)}
+              />
+            </div>
+
+            <div>
+              <AttachMoneyIcon />
+              <input
+                type="number"
+                placeholder="Discount"
+                required
+                onChange={(e) => setDiscount(e.target.value)}
               />
             </div>
 

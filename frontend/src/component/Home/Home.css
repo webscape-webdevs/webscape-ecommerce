@@ -1,3 +1,7 @@
+.productCard img {
+  max-height: 269px;
+}
+
 .banner {
   
   background-position: center;

@@ -96,13 +96,13 @@ const ProcessOrder = ({ history, match }) => {
                       <p
                         className={
                           order.paymentInfo &&
-                          order.paymentInfo.status === "succeeded"
+                            order.paymentInfo.status === "succeeded"
                             ? "greenColor"
                             : "redColor"
                         }
                       >
                         {order.paymentInfo &&
-                        order.paymentInfo.status === "succeeded"
+                          order.paymentInfo.status === "succeeded"
                           ? "PAID"
                           : "NOT PAID"}
                       </p>
@@ -139,6 +139,7 @@ const ProcessOrder = ({ history, match }) => {
                           <Link to={`/product/${item.product}`}>
                             {item.name}
                           </Link>{" "}
+                          <span style={{ marginRight: "20px" }}><b>{item.discount}% OFF</b></span>
                           <span>
                             {item.quantity} X ₹{item.price} ={" "}
                             <b>₹{item.price * item.quantity}</b>
