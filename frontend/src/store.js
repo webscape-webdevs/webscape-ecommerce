@@ -12,6 +12,14 @@ import {
 } from "./reducers/productReducer";
 
 import {
+
+  heroDetailsReducer,
+  heroReducer,
+
+} from "./reducers/heroReducer";
+
+
+import {
   allUsersReducer,
   forgotPasswordReducer,
   profileReducer,
@@ -31,6 +39,8 @@ import {
 const reducer = combineReducers({
   products: productsReducer,
   productDetails: productDetailsReducer,
+  hero: heroReducer,
+  heroDetails: heroDetailsReducer,
   user: userReducer,
   profile: profileReducer,
   forgotPassword: forgotPasswordReducer,

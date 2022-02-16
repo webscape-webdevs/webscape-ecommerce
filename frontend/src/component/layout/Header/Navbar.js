@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import './Navbar.css'
 import { RiMenu2Line, RiCloseLine, RiShoppingCart2Line, RiSearchLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 
 
 const Menu = () => (
     <>
-        <p><a className="navbar-buttons" href='/' >Home</a> </p>
-        <p><a className="navbar-buttons" href='/products'>Products</a></p>
-        <p><a className="navbar-buttons" href='/contact'>Contact Us</a> </p>
-        <p><a className="navbar-buttons" href='/about'>About Us</a></p>
+        <p><Link className="navbar-buttons" to='/' >Home</Link> </p>
+        <p><Link className="navbar-buttons" to='/products'>Products</Link></p>
+        <p><Link className="navbar-buttons" to='/contact'>Contact Us</Link> </p>
+        <p><Link className="navbar-buttons" to='/about'>About Us</Link></p>
 
     </>
 
@@ -30,18 +31,18 @@ function Navbar() {
                         <div className='navbar-menu-container-links'>
                             <Menu />
                             <div className='navbar-cart-search-menu'>
-                                <a className="navbar-non-menu-buttons" href='/Cart' >
+                                <Link className="navbar-non-menu-buttons" to='/Cart' >
                                     <RiShoppingCart2Line color='red' size={35} />
-                                </a>
+                                </Link>
 
-                                <a className="navbar-non-menu-buttons" href='/Search' >
+                                <Link className="navbar-non-menu-buttons" to='/Search' >
                                     <RiSearchLine color='red' size={30} />
-                                </a>
+                                </Link>
 
                             </div>
                             <div className='navbar-menu-container-links-sign'>
 
-                                <button type='button'><a className="navbar-signup-button" href='/login' >Login / Sign up</a></button>
+                                <button type='button'><Link className="navbar-signup-button" to='/login' >Login / Sign up</Link></button>
                             </div>
                         </div>
                     </div>
@@ -50,13 +51,13 @@ function Navbar() {
             </div>
 
             <div className='navbar-cart-search-non-menu'>
-                <a className="navbar-non-menu-buttons" href='/Cart' >
+                <Link className="navbar-non-menu-buttons" to='/Cart' >
                     <RiShoppingCart2Line color='red' size={55} />
-                </a>
+                </Link>
 
-                <a className="navbar-non-menu-buttons" href='/Search' >
+                <Link className="navbar-non-menu-buttons" to='/Search' >
                     <RiSearchLine color='red' size={50} />
-                </a>
+                </Link>
 
             </div>
 

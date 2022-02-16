@@ -37,6 +37,8 @@ import UpdateUser from "./component/Admin/UpdateUser";
 import ProductReviews from "./component/Admin/ProductReviews";
 import Contact from "./component/layout/Contact/Contact";
 import About from "./component/layout/About/About";
+import Hero from "./component/Admin/HeroList"
+import UpdateHero from "./component/Admin/UpdateHero"
 
 import Navbar from "./component/layout/Header/Navbar";
 
@@ -120,11 +122,26 @@ function App() {
           isAdmin={true}
           component={ProductList}
         />
+
+        <ProtectedRoute
+          exact
+          path="/admin/hero"
+          isAdmin={true}
+          component={Hero}
+        />
+
         <ProtectedRoute
           exact
           path="/admin/product"
           isAdmin={true}
           component={NewProduct}
+        />
+
+        <ProtectedRoute
+          exact
+          path="/admin/hero/:id"
+          isAdmin={true}
+          component={UpdateHero}
         />
 
 

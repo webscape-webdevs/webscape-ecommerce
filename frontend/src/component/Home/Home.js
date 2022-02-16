@@ -4,6 +4,7 @@ import "./Home.css";
 import ProductCard from "./ProductCard.js";
 import MetaData from "../layout/MetaData";
 import { clearErrors, getProduct } from "../../actions/productAction";
+import { getHero } from "../../actions/heroAction";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
@@ -12,14 +13,25 @@ const Home = () => {
   const alert = useAlert();
   const dispatch = useDispatch();
   const { loading, error, products } = useSelector((state) => state.products);
-
+  const { hero } = useSelector((state) => state.hero);
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
     dispatch(getProduct());
+    dispatch(getHero())
   }, [dispatch, error, alert]);
+
+  let url = "";
+
+
+  hero && hero.forEach((item) => {
+
+    url = item.url
+  });
+
+
 
   return (
     <Fragment>
@@ -29,7 +41,7 @@ const Home = () => {
         <Fragment>
           <MetaData title="ECOMMERCE" />
 
-          <div className="banner">
+          <div className="banner" style={{ backgroundImage: `url(${url}) ` }}>
             <p>Welcome to Ecommerce</p>
             <h1>FIND AMAZING PRODUCTS BELOW</h1>
 

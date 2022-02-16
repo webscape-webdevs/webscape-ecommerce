@@ -82,8 +82,7 @@ router.route("/admin/product/new").post(isAuthenticatedUser, authorizeRoles("adm
   });
 }));
 
-router
-  .route("/admin/product/:id")
+router.route("/admin/product/:id")
 
   // Update Product -- Admin
   .put(isAuthenticatedUser, authorizeRoles("admin"), catchAsyncErrors(async (req, res, next) => {
