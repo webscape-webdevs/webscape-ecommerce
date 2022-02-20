@@ -42,14 +42,17 @@ const Home = () => {
           <MetaData title="ECOMMERCE" />
 
           <div className="banner" style={{ backgroundImage: `url(${url}) ` }}>
-            <p>Welcome to Ecommerce</p>
-            <h1>FIND AMAZING PRODUCTS BELOW</h1>
+            <div className="banner_overlay">
+              <p >Welcome to Ecommerce</p>
+              <h1>FIND AMAZING PRODUCTS BELOW</h1>
 
-            <a href="#container">
-              <button>
-                Scroll <CgMouse />
-              </button>
-            </a>
+              <a href="#container">
+                <button>
+                  Scroll <CgMouse />
+                </button>
+              </a>
+            </div>
+
           </div>
 
           <h2 className="homeHeading">Featured Products</h2>

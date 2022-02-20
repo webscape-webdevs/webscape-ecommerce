@@ -91,6 +91,7 @@ const MyOrders = () => {
         itemDate: item.paidAt,
         amount: item.totalPrice,
       });
+
     });
 
   useEffect(() => {
@@ -110,6 +111,8 @@ const MyOrders = () => {
         <Loader />
       ) : (
         <div className="myOrdersPage">
+          <h1 id="productListHeading">MY ORDERS</h1>
+
           <DataGrid
             rows={rows}
             columns={columns}

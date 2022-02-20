@@ -65,7 +65,7 @@ const Products = ({ match }) => {
       {loading ? (
         <Loader />
       ) : (
-        <Fragment>
+        <div>
           <MetaData title="PRODUCTS -- ECOMMERCE" />
           <h2 className="productsHeading">Products</h2>
 
@@ -132,7 +132,7 @@ const Products = ({ match }) => {
               />
             </div>
           )}
-        </Fragment>
+        </div>
       )}
     </Fragment>
   );

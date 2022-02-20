@@ -29,11 +29,14 @@ const ProductCard = ({ product }) => {
 
       {product.discount !== 0
         ? <>
-          <span>{`₹${product.price}`}</span>
-          <span>{`${product.discount}% OFF`}</span>
-          <span>{`₹${product.finalPrice}`}</span>
+          <div className="productCard-discountprice">
+            <span style={{ fontSize: '20px' }}>{`₹${product.finalPrice}`}</span>
+            <span style={{ textDecoration: "line-through", textDecorationThickness: '2px', color: ' #808090' }}>{`₹${product.price}`}</span>
+            <span style={{ fontSize: '20px' }}>{`${product.discount}% OFF`}</span>
+          </div>
+
         </>
-        : <><span>{`₹${product.price}`}</span></>
+        : <><span style={{ fontSize: '20px' }}>{`₹${product.price}`}</span></>
 
       }
 

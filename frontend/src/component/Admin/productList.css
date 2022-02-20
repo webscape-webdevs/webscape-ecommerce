@@ -67,8 +67,8 @@
   box-sizing: border-box;
   color: rgba(0, 0, 0, 0.637);
   transition: all 0.5s;
-  margin: 2rem;
   text-align: center;
+  margin-top: 110px;
 }
 
 .productListTable {

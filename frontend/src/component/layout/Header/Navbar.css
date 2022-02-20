@@ -8,8 +8,49 @@
     z-index:10;
 }
 
+.navbar-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: black;
+    opacity: 0.8;
+    position: fixed;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+
+.navbar-menu {
+    display: flex;
+    justify-content: flex-start;
+    /* padding: 2rem ;  */
+
+   
+}
+
+.navbar-links{
+   flex: 0.8;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+}
+
+.navbar-links-container{
+    display: flex;
+    flex-direction: row;
+    padding-left: 40px;
+    
+}
+
+.navbar-links-container p{
+    padding-right: 50px;
+}
+
 .navbar-cart-search-non-menu{
-   display: block;
+   display: none;
 }
 
 .navbar-cart-search-menu{
@@ -22,8 +63,10 @@
 }
 
 
+
 a{
     text-decoration: none;
+
 }
 
 .navbar-signup-button{
@@ -39,7 +82,7 @@ a{
 }
 
 .navbar-buttons{
-    color: black;
+    color: white;
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -77,7 +120,7 @@ a{
 
 .navbar-menu {
     margin-left: 1rem;
-    display: block;
+    display: none;
     position: relative;
 }
 
@@ -90,7 +133,6 @@ a{
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    
     text-align: start;
     background: white;
     padding: 2rem;
@@ -111,15 +153,34 @@ a{
 }
 
 
-
 @media screen and (max-width: 1050px) {
-   
+    .navbar{
+        justify-content: flex-start;
+    }
+
+    .navbar-container{
+        display: none;
+    }
+
     .navbar-menu {
         display: flex;
+        
     }
+
+    .navbar-buttons{
+        color: black;
+    }
+
+    .navbar-cart-search-non-menu{
+        display: block;
+     }
+     
+
+    
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
+
     .navbar {
         padding:0;
         padding-top: 1rem;
@@ -144,9 +205,15 @@ a{
         top:0;
     }
 
+    .navbar-sign {
+        display: none;
+    }
 
     .navbar-menu-container {
         top: 20px;
     }
 
+    .navbar-menu-container-links-sign {
+        display: block;
+    }
 }
