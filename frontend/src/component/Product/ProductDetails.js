@@ -140,7 +140,7 @@ const ProductDetails = ({ match }) => {
                     <div style={{ display: "flex", color: 'rgba(17, 17, 17, 0.795)', font: '400 0.9vmax "Franklin Gothic Medium" ' }}>
                       <h1 style={{ paddingRight: "10px" }}>Discount.:</h1>
                       <h1 style={{ color: 'tomato', paddingRight: "12px" }}>{` ₹${product.finalPrice} `} </h1>
-                      <h1 style={{ fontSize: "25px" }}>{` ${product.discount}% OFF`} </h1>
+                      <h1 >{` ${product.discount}% OFF`} </h1>
                     </div>
                   </>
                   : <h1>{`M.R.P.:  ₹${product.price}`}</h1>

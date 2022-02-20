@@ -14,7 +14,7 @@
 
 .banner_overlay{
   background-color: black;
-  opacity: 0.85;
+  opacity: 0.75;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -132,12 +132,12 @@
   font-size: 1vmax;
 }
 
-.productCard-discountprice  > span{
+.productCard-discountprice > span{
   margin: 0;
   padding-right: 9px;
   color: tomato;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 1vmax;
+  font-size: 20px;
 }
 
 .productCard:hover {
@@ -162,6 +162,11 @@
 
   .productCard > div > span {
     margin: 0 0.5vmax;
-    font: 300 1vmax "Roboto";
+    font: 300 2vmax "Roboto";
+  }
+
+  .productCard-discountprice > span{
+    display: flex;
+
   }
 }

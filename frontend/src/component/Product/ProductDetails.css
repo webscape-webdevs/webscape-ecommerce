@@ -197,6 +197,10 @@
   color: rgba(0, 0, 0, 0.548);
 }
 
+.detailsBlock-3 > div >h1 {
+  font-size: 25px;
+}
+
 @media screen and (max-width: 600px) {
   .ProductDetails {
     flex-direction: column;
@@ -225,8 +229,17 @@
   }
 
   .detailsBlock-3 > h1 {
-    font: 700 3vmax "Franklin Gothic Medium";
+    font: 700 2vmax "Franklin Gothic Medium";
     text-align: center;
+  }
+
+  .detailsBlock-3 > div >h1 {
+    font: 700 2.5vmax "Franklin Gothic Medium";
+    text-align: center;
+  }
+
+  .detailsBlock-3 > div  {
+    flex-direction: column;
   }
 
   .detailsBlock-3-1 {
